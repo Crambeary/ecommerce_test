@@ -37,7 +37,7 @@ class TestHome:
         """Test case to check elements loaded on the main page"""
         main_page = page.MainPage(self.driver)
         assert main_page.does_site_header_match("DemoStore\nJust another WordPress site")
-        assert main_page.does_navbar_match()
+        assert main_page.does_navbar_match("Home\nCart\nCheckout\nMy account\nSample Page")
 
     def test_search_hoodie(self, setup_driver):
         """Test case is for checking the search function on the main page works"""

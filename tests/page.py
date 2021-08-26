@@ -35,7 +35,7 @@ class MainPage(BasePage):
         element = self.driver.find_element(*MainPageLocators.SITE_HEADER)
         return to_match in element.text
 
-    def does_navbar_match(self, to_match="Home\nCart\nCheckout\nMy account\nSample Page"):
+    def does_navbar_match(self, to_match):
         element = self.driver.find_element(*MainPageLocators.NAV_MENU)
         return to_match in element.text
 
