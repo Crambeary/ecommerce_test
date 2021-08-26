@@ -6,22 +6,38 @@ as typing and clicking on links.
 
 These will also return booleans meant to be read as a PASS or FAIL
 """
-import pdb
+
+import pdb  # Use pdb.set_trace() to check the contents of the web element during test case creation
 
 from locator import *
 from selenium.webdriver.common.keys import Keys
 
 
 class BasePage(object):
+    """Base class object for inheriting the web driver"""
     def __init__(self, driver) -> None:
         self.driver = driver
         super().__init__()
 
 
 class MainPage(BasePage):
+    """
+    Class for functions to be used when testing the main page.
+
+    Test Cases to write:
+        - Hover over cart shows items
+    """
 
     def does_title_match(self, to_match="DemoStore – Just another WordPress site"):
         return to_match in self.driver.title
+
+    def does_site_header_match(self, to_match):
+        element = self.driver.find_element(*MainPageLocators.SITE_HEADER)
+        return to_match in element.text
+
+    def does_navbar_match(self, to_match="Home\nCart\nCheckout\nMy account\nSample Page"):
+        element = self.driver.find_element(*MainPageLocators.NAV_MENU)
+        return to_match in element.text
 
     def enter_search_field(self, sending):
         element = self.driver.find_element(*MainPageLocators.SEARCH_FIELD)
@@ -34,7 +50,8 @@ class MainPage(BasePage):
         element.click()
 
     def add_beanie_to_cart(self):
-        element = self.driver.find_element()
+        element = self.driver.find_element(*MainPageLocators.BEANIE_ADD_TO_CART)
+        element.click()
 
     def click_cart_button(self):
         element = self.driver.find_element(*MainPageLocators.CART_BUTTON)
@@ -46,6 +63,13 @@ class MainPage(BasePage):
 
 
 class SearchPage(BasePage):
+    """
+    Class for all functions on the search results screen
+
+    Test Cases to write:
+        - Check that an invalid search with no results works as expected
+        - Check that items can be selected and interacted with
+    """
 
     def read_search_result(self, expected_result):
         element = self.driver.find_element(*SearchResultLocators.SEARCH_RESULT)
