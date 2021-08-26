@@ -8,3 +8,4 @@ class MainPageLocators(object):
 
 class SearchResultLocators(object):
     SEARCH_RESULT = (By.CSS_SELECTOR, "#main > header > h1")
+    PRODUCT_RESULT = (By.CSS_SELECTOR, "#main > ul")

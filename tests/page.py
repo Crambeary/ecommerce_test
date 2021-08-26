@@ -1,3 +1,5 @@
+import pdb
+
 from locator import *
 from selenium.webdriver.common.keys import Keys
 
@@ -21,6 +23,10 @@ class MainPage(BasePage):
 
     def read_search_result(self, expected_result):
         element = self.driver.find_element(*SearchResultLocators.SEARCH_RESULT)
+        return expected_result in element.text
+
+    def check_for_product(self, expected_result):
+        element = self.driver.find_element(*SearchResultLocators.PRODUCT_RESULT)
         return expected_result in element.text
 
     def click_cart_button(self):

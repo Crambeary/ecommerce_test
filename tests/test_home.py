@@ -1,4 +1,4 @@
-import time
+import pdb
 
 import pytest
 from selenium import webdriver
@@ -24,6 +24,7 @@ class TestHome:
         main_page.enter_search_field("Hoodie")
         assert main_page.is_title_matches(r"Search Results for “Hoodie” – DemoStore")
         assert main_page.read_search_result("Hoodie")
+        main_page.check_for_product("Hoodie")
 
 
 if __name__ == "__main__":
