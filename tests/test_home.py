@@ -72,9 +72,9 @@ class TestHome:
         main_page = page.MainPage(self.driver)
         assert main_page.does_title_match()  # Make sure we are on the main page.
         main_page.add_beanie_to_cart()
-        main_page.check_cart_total("$16.27 1 item")
+        main_page.check_cart_total("$16.27 1 item")  # TODO: read the cost from the thumbnail
         main_page.add_hoodie_to_cart()
-        main_page.check_cart_total("$49.68 2 items")
+        main_page.check_cart_total("$49.68 2 items")  # TODO: read the cost from the thumbnail
 
 
 if __name__ == "__main__":
