@@ -23,7 +23,7 @@ class TestHome:
     @pytest.fixture  # This allows the test cases to find and run the function as a setup and teardown
     def setup_driver(self) -> None:
         """Function used for setting up the case with a fresh site load and for tearing down between cases."""
-        self.driver = webdriver.Chrome(r"C:\Testing\chromedriver.exe")
+        self.driver = webdriver.Chrome(r"chromedriver")
         self.driver.get("http://demostore.supersqa.com/")
         yield  # This allows the test functions to complete and ends with teardown.
         self.driver.close()
