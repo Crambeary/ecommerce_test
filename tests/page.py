@@ -66,7 +66,7 @@ class MainPage(BasePage):
         element = self.driver.find_element(*MainPageLocators.SORT_DROPDOWN)
         dropdown = Select(element)
         dropdown.select_by_value(dropdown_value)
-        return dropdown_value in self.driver.title
+        return dropdown_value in self.driver.current_url
         
 
 class SearchPage(BasePage):

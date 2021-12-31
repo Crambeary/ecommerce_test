@@ -80,12 +80,12 @@ class TestHome:
     def test_sort_dropdown(self, setup_driver):
         """Test case is for checking the sort dropdown works"""
         main_page = page.MainPage(self.driver)
-        main_page.sort_by_value("popularity")  # Sort by Popularity
-        main_page.sort_by_value("price")  # Sort by Price: Low to High
-        main_page.sort_by_value("price-desc")  # Sort by Price Descending: High to Low
-        main_page.sort_by_value("rating")  # Sort by Rating
-        main_page.sort_by_value("date")  # Sort by Date
-        main_page.sort_by_value("menu_order")  # Sort by Default Order
+        assert main_page.sort_by_value("popularity")  # Sort by Popularity
+        assert main_page.sort_by_value("price")  # Sort by Price: Low to High
+        assert main_page.sort_by_value("price-desc")  # Sort by Price Descending: High to Low
+        assert main_page.sort_by_value("rating")  # Sort by Rating
+        assert main_page.sort_by_value("date")  # Sort by Date
+        assert main_page.sort_by_value("menu_order")  # Sort by Default Order
         
         
 
