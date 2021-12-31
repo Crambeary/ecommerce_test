@@ -15,7 +15,12 @@ class MainPageLocators(object):
                                            ".product_cat-accessories.has-post-thumbnail.sale.shipping-taxable"
                                            ".purchasable.product-type-simple > "
                                            "a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart")
-
+    SORT_DROPDOWN = (By.CSS_SELECTOR, "#main > div:nth-child(2) > form > select")
+    PRODUCT_RESULT = (By.CSS_SELECTOR,"#main > ul")
+    ALBUM_PRODUCT = (By.CSS_SELECTOR, "#main > ul > li.product.type-product.post-23.status-publish.first"
+                                      ".instock.product_cat-music.has-post-thumbnail.sale.downloadable"
+                                      ".virtual.purchasable.product-type-simple")
+    POPULARITY_DROPDOWN = (By.CSS_SELECTOR, "#main > div:nth-child(2) > form > select > option:nth-child(2)")
 
 class SearchResultLocators(object):
     """Class that holds the locations of elements for the Search Results page"""

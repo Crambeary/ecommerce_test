@@ -24,6 +24,7 @@ class TestHome:
     def setup_driver(self) -> None:
         """Function used for setting up the case with a fresh site load and for tearing down between cases."""
         self.driver = webdriver.Chrome(r"chromedriver")
+        self.driver.maximize_window()
         self.driver.get("http://demostore.supersqa.com/")
         yield  # This allows the test functions to complete and ends with teardown.
         self.driver.close()
@@ -75,6 +76,18 @@ class TestHome:
         main_page.check_cart_total("$16.27 1 item")
         main_page.add_hoodie_to_cart()
         main_page.check_cart_total("$49.68 2 items")
+        
+    def test_sort_dropdown(self, setup_driver):
+        """Test case is for checking the sort dropdown works"""
+        main_page = page.MainPage(self.driver)
+        main_page.sort_by_value("popularity")  # Sort by Popularity
+        main_page.sort_by_value("price")  # Sort by Price: Low to High
+        main_page.sort_by_value("price-desc")  # Sort by Price Descending: High to Low
+        main_page.sort_by_value("rating")  # Sort by Rating
+        main_page.sort_by_value("date")  # Sort by Date
+        main_page.sort_by_value("menu_order")  # Sort by Default Order
+        
+        
 
 
 if __name__ == "__main__":

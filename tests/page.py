@@ -11,6 +11,7 @@ import pdb  # Use pdb.set_trace() to check the contents of the web element durin
 
 from locator import *
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 
 
 class BasePage(object):
@@ -60,7 +61,13 @@ class MainPage(BasePage):
     def check_cart_total(self, expected_total):
         element = self.driver.find_element(*MainPageLocators.CART_BUTTON)
         return expected_total in element.text
-
+    
+    def sort_by_value(self, dropdown_value):
+        element = self.driver.find_element(*MainPageLocators.SORT_DROPDOWN)
+        dropdown = Select(element)
+        dropdown.select_by_value(dropdown_value)
+        return dropdown_value in self.driver.title
+        
 
 class SearchPage(BasePage):
     """
