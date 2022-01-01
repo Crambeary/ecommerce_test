@@ -4,7 +4,7 @@ Module used for defining page functions.
 Page functions are the interaction done on the page using the locators on the site and performing interactions such
 as typing and clicking on links.
 
-These will also return booleans meant to be read as a PASS or FAIL
+These will also return Booleans meant to be read as a PASS or FAIL
 """
 
 import pdb  # Use pdb.set_trace() to check the contents of the web element during test case creation
@@ -29,10 +29,10 @@ class MainPage(BasePage):
         - Hover over cart shows items
     """
 
-    def does_title_match(self, to_match="DemoStore – Just another WordPress site"):
+    def does_title_match(self, to_match="DemoStore – Just another WordPress site") -> bool:
         return to_match in self.driver.title
 
-    def does_site_header_match(self, to_match):
+    def does_site_header_match(self, to_match) -> bool:
         element = self.driver.find_element(*MainPageLocators.SITE_HEADER)
         return to_match in element.text
 

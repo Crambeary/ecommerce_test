@@ -1,3 +1,8 @@
+"""
+This module is for holding all of the locations of the web elements on the website.
+It is imported by the page.py file for use in functions that want to interact with the website.
+"""
+
 from selenium.webdriver.common.by import By
 
 
